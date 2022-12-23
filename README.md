@@ -46,3 +46,82 @@ Output
 9
 
 
+
+/* package codechef; // don't place package name! */
+import java.util.*;
+import java.lang.*;
+import java.io.*;
+
+/* Name of the class has to be "Main" only if the class is public. */
+public class Main
+{
+    public static void main (String[] args) throws java.lang.Exception
+    {
+		Scanner sc = new Scanner(System.in);
+
+int n = sc.nextInt();
+
+int [] arr = new int[n];
+
+for(int i =0;i<n;i++)
+
+{
+
+arr[i] = sc.nextInt();
+
+}
+
+int sum =0;
+
+for(int i =1;i<n-1;i++)
+
+{
+int[] prefmax = new int[n];
+int pMax = Integer.MIN_VALUE;
+
+int sMax = Integer.MIN_VALUE;
+
+int min = 0;
+
+for(int j =0;j<i;j++)
+
+{
+
+if(pMax<arr[j])
+
+pMax = arr[j];
+prefmax[j]= pMax;
+}
+
+for(int j =i+1;j<n;j++)
+
+{
+
+if(sMax<arr[j])
+
+sMax = arr[j];
+
+}
+
+if(pMax<sMax)
+
+min = pMax;
+
+else
+
+min = sMax;
+
+if(min>arr[i])
+
+sum =sum+(min-arr[i]);
+
+}
+
+System.out.println(sum);
+
+    }
+
+}
+
+
+
